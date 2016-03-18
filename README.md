@@ -1,2 +1,2 @@
-# Dumpman
-![Demo](http://labs.jordane.net/img/demo-eddy-malou-lorem-ipsum.gif)
+# DumpMan
+![DumpMan](http://img11.hostingpics.net/pics/544204dumpman2.png)
