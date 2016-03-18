@@ -1,16 +1,19 @@
 import sublime, sublime_plugin, re
 
 class DumpmanCommand(sublime_plugin.TextCommand):
+
+
 	def run(self, edit):
+		content = ''
 		for region in self.view.sel():
+
 			if region.empty():
 				line = self.view.line(region)
-				content = "dd(" + self.view.substr(line) + ");\n"
+				content = self.getDump("'Dump man : ",self.view.file_name())
 				self.view.insert(edit, line.end() + 1, content)
 
 			else:
 				selection = self.view.substr(region)
-				# self.view.insert(edit, 0, self.view.substr(region.end() + 1))
 
 				if self.view.substr(region.begin() - 1) == '$':
 					content = "dd($" + selection + ");\n"
@@ -36,3 +39,14 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 				indentation = lineStr.replace(lineStr.lstrip(),'')
 
 				self.view.insert(edit, line.end() + 1, indentation + content)
+
+	def getDumpFooter(self, fileName):
+		return fileName + " Line : 32 '"
+
+	def getDump(self, content, fileName):
+		return "dd(" + content + " " + self.getDumpFooter(fileName) + ");\n"
+
+
+
+
+
