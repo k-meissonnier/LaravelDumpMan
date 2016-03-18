@@ -10,15 +10,15 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 
 			else:
 				selection = self.view.substr(region)
+				regionPosition = region.begin()
 
-				content = "dd(" + selection + ");\n"
+				if self.view.substr(regionPosition - 1) == '$':
+					content = "dd($" + selection + ");\n"
+				else:
+					content = "dd(" + selection + ");\n"
+
 				line = self.view.line(region)
 				lineStr = self.view.substr(line)
 				indentation = lineStr.replace(lineStr.lstrip(),'')
 
 				self.view.insert(edit, line.end() + 1, indentation + content)
-
-
-
-
-
