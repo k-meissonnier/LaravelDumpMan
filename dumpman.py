@@ -9,14 +9,15 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 
 			if region.empty():
 				line = self.view.line(region)
-				content = self.getDump("'Dump man : ",self.view.file_name())
+				content = self.getDump("")
 				self.view.insert(edit, line.end() + 1, content)
 
 			else:
 				selection = self.view.substr(region)
 
 				if self.view.substr(region.begin() - 1) == '$':
-					content = "dd($" + selection + ");\n"
+					content = self.getDump('$' + selection)
+
 				elif self.view.substr(region.end()) == '(':
 					errorFunction = 0
 					i = region.end() + 1
@@ -25,28 +26,29 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 							errorFunction = 1
 							break
 						i = i + 1
+
 					if(errorFunction):
-						content = "dd(" + selection + ");\n"
+						content = self.getDump("")
+
 					else:
-						selection = self.view.substr(sublime.Region(region.begin(),i+1))
-						content = "dd(" + selection + ");\n"
+						selection = self.view.substr(sublime.Region(region.begin(), i+1))
+						content = self.getDump(selection)
 
 				else:
-					content = "dd(" + selection + ");\n"
+					content = self.getDump(selection)
 
 				line = self.view.line(region)
 				lineStr = self.view.substr(line)
 				indentation = lineStr.replace(lineStr.lstrip(),'')
 
+
 				self.view.insert(edit, line.end() + 1, indentation + content)
 
-	def getDumpFooter(self, fileName):
-		return fileName + " Line : 32 '"
+	def getDumpFooter(self):
+		return "" + self.view.file_name()
 
-	def getDump(self, content, fileName):
-		return "dd(" + content + " " + self.getDumpFooter(fileName) + ");\n"
-
-
-
-
-
+	def getDump(self, content):
+		if content == "":
+			return "dd(" + "'" + self.getDumpFooter() + "'" + ");\n"
+		else:
+			return "dd(" + content + " .' " + self.getDumpFooter() + "');\n"
