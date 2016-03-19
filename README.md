@@ -1,2 +1,2 @@
 # DumpMan
-![DumpMan](http://img11.hostingpics.net/pics/544204dumpman2.png)
+![DumpMan](http://s28.postimg.org/58kg8kygd/dumpman4.png)
