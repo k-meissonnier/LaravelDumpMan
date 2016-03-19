@@ -6,11 +6,13 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		content = ''
 		for region in self.view.sel():
+			line = self.view.line(region)
+			lineStr = self.view.substr(line)
+			indentation = lineStr.replace(lineStr.lstrip(),'')
 
 			if region.empty():
-				line = self.view.line(region)
 				content = self.getDump("")
-				self.view.insert(edit, line.end() + 1, content)
+				self.view.insert(edit, line.end() + 1, indentation + content)
 
 			else:
 				selection = self.view.substr(region)
@@ -27,7 +29,7 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 							break
 						i = i + 1
 
-					if(errorFunction):
+					if errorFunction:
 						content = self.getDump("")
 
 					else:
@@ -36,19 +38,13 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 
 				else:
 					content = self.getDump(selection)
-
-				line = self.view.line(region)
-				lineStr = self.view.substr(line)
-				indentation = lineStr.replace(lineStr.lstrip(),'')
-
-
 				self.view.insert(edit, line.end() + 1, indentation + content)
 
 	def getDumpFooter(self):
 		return "" + self.view.file_name()
 
 	def getDump(self, content):
-		if content == "":
+		if not content:
 			return "dd(" + "'" + self.getDumpFooter() + "'" + ");\n"
 		else:
 			return "dd(" + content + " .' " + self.getDumpFooter() + "');\n"
