@@ -1,5 +1,6 @@
 ![DumpMan](http://s28.postimg.org/58kg8kygd/dumpman4.png)
 
+# DumpMan
 Short cut for dump die on laravel.
 
 ## How to use this plugin :
