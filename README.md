@@ -1,4 +1,4 @@
-![DumpMan](http://s28.postimg.org/58kg8kygd/dumpman4.png)
+![DumpMan](http://www.zupimages.net/up/16/16/iz8j.gif)
 
 # DumpMan
 Short cut for dump die on laravel.
