@@ -40,11 +40,8 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 					content = self.getDump(selection)
 				self.view.insert(edit, line.end() + 1, indentation + content)
 
-	def getDumpFooter(self):
-		return "" + self.view.file_name()
-
 	def getDump(self, content):
 		if not content:
-			return "dd(" + "'" + self.getDumpFooter() + "'" + ");\n"
+			return "dd(" + "'DumpMan'" + ");\n"
 		else:
-			return "dd(" + content + " .' " + self.getDumpFooter() + "');\n"
+			return "dd(" + content + ");\n"
