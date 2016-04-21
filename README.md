@@ -1,3 +1,4 @@
+[![Package Control](https://img.shields.io/packagecontrol/dt/LaravelDumpMan.svg)](https://packagecontrol.io/packages/EddyMalou%20LoremIpsum) [![Package Control](https://img.shields.io/packagecontrol/dm/LaravelDumpMan.svg)](https://packagecontrol.io/packages/EddyMalou%20LoremIpsum) [![Package Control](https://img.shields.io/packagecontrol/dw/LaravelDumpMan.svg)](https://packagecontrol.io/packages/EddyMalou%20LoremIpsum) [![Package Control](https://img.shields.io/packagecontrol/dd/LaravelDumpMan.svg)](https://packagecontrol.io/packages/EddyMalou%20LoremIpsum)
 ![DumpMan](http://www.zupimages.net/up/16/16/iz8j.gif)
 
 # DumpMan
