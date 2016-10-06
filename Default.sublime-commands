@@ -1,0 +1,7 @@
+[
+    {
+        "caption": "Laravel DumpMan",
+        "command": "run_macro_file",
+        "args": {"file": "Packages/LaravelDumpMan/dumpman.sublime-macro"}
+    }
+]

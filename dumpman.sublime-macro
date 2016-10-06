@@ -1,0 +1,14 @@
+[
+	{
+		"args":{"to": "scope"},
+		"command": "expand_selection"
+	},
+	{
+		"args": null,
+		"command": "dumpman"
+	},
+	{
+		"args": null,
+		"command": "deselect"
+	}
+]
