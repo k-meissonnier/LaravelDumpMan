@@ -15,7 +15,7 @@ class DumpmanCommand(sublime_plugin.TextCommand):
 				variables = re.compile(r'(\$[a-zA-Z0-9_]+)')
 				offset = region.begin() - line.begin()
 				for m in variables.finditer(lineStr):
-					if (m.start() < offset) and (offset < m.start() + len(m.group())):
+					if (m.start() <= offset) and (offset <= m.start() + len(m.group())):
 						content = self.getDump(m.group())
 						break
 				self.view.insert(edit, line.end() + 1, indentation + content)
