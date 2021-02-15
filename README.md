@@ -21,7 +21,7 @@ Coming soon !
 ### Credit
 
 Thanks to :
-- Hadrien Brunaud (https://github.com/sewnboy)
+- Salamanth (https://github.com/Salamanth)
 - Jordane Jouffroy (https://github.com/Metrakit)
 - Tommy Choisy (https://github.com/stars/tchoisy)
 
